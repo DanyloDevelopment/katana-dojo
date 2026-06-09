@@ -8,7 +8,11 @@
     mixBlendMode: 'overlay'
   });
   const ctx = canvas.getContext('2d');
-  function draw() {
+  let last = 0;
+  function draw(ts) {
+    requestAnimationFrame(draw);
+    if (ts - last < 150) return; // ~6fps — достаточно для шума, не грузит поток
+    last = ts;
     const img = ctx.createImageData(200, 200);
     for (let i = 0; i < img.data.length; i += 4) {
       const v = Math.random() * 255 | 0;
@@ -17,8 +21,7 @@
     }
     ctx.putImageData(img, 0, 0);
   }
-  draw();
-  setInterval(draw, 100);
+  requestAnimationFrame(draw);
   document.body.appendChild(canvas);
 })();
 
@@ -125,11 +128,11 @@ gsap.utils.toArray('.reveal').forEach(el => {
 // ─── PARALLAX ─────────────────────────────────────────
 gsap.to('.hero-number', {
   yPercent: 50, ease: 'none',
-  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
 });
 gsap.to('.hero-bg', {
   yPercent: 25, ease: 'none',
-  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+  scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
 });
 
 // Hero mouse parallax
@@ -173,10 +176,6 @@ gsap.utils.toArray('.stat-num').forEach(el => {
   inner.textContent = txt.repeat(6);
   wrap.appendChild(inner);
   document.getElementById('schedule').before(wrap);
-  gsap.to(inner, {
-    x: '-50%', duration: 25, ease: 'none', repeat: -1,
-    modifiers: { x: gsap.utils.unitize(x => parseFloat(x) % (inner.offsetWidth / 2 * -1)) }
-  });
   gsap.to(inner, { x: () => -(inner.offsetWidth / 2), duration: 25, ease: 'none', repeat: -1 });
 })();
 
