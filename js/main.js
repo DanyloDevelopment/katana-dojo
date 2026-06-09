@@ -1,4 +1,4 @@
-/ ─── CURSOR ───────────────────────────────────────────
+// ─── CURSOR ───────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursor-follower');
 let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
