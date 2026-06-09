@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katana Dojo — Alexander Novykov</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Inter:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-kanji"><span id="loader-kanji-text">刀</span></div>
+    <div class="loader-line" id="loader-line"></div>
+    <div class="loader-sub" id="loader-sub">Katana Dojo — Gegr. 2005</div>
+  </div>
+
+  <!-- SLASH PANELS -->
+  <div class="slash-left" id="slash-left"></div>
+  <div class="slash-right" id="slash-right"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">刀 <span>Katana</span> Dojo</a>
+    <ul class="nav-links">
+      <li><a href="#about">Sensei</a></li>
+      <li><a href="#programs">Programme</a></li>
+      <li><a href="#schedule">Stundenplan</a></li>
+      <li><a href="#contact">Anmelden</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-number">極</div>
+
+    <p class="hero-eyebrow" id="hero-eyebrow">Kyokushin Karate · Ins, Schweiz</p>
+
+    <h1 class="hero-title">
+      <div class="line"><span>Geformt</span></div>
+      <div class="line"><span>durch</span></div>
+      <div class="line line-red"><span>Disziplin.</span></div>
+    </h1>
+
+    <div class="hero-sub">
+      <p class="hero-desc" id="hero-desc">
+        Unter Sensei Alexander Novykov lehrt das Katana Dojo Kyokushin — die Vollkontakt-Kampfkunst, die auf absoluter Ausdauer, Präzision und Kampfgeist aufgebaut ist.
+      </p>
+      <div class="hero-cta" id="hero-cta">
+        <a href="#contact" class="btn-primary">Training beginnen</a>
+        <a href="#programs" class="btn-outline">Unsere Programme</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" id="hero-scroll">
+      <span class="scroll-text">Scrollen</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-photo-frame">
+        <!-- Ersetze durch <img src="img/sensei.jpg" alt="Alexander Novykov"> sobald Fotos vorhanden -->
+        <div class="about-photo-placeholder">
+          <div class="kanji-bg">空</div>
+          <p>Foto folgt bald</p>
+        </div>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-num">20+</div>
+        <div class="about-badge-text">Jahre<br>Erfahrung</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="reveal">
+        <p class="section-label">Der Sensei</p>
+        <h2 class="section-title">Alexander<br>Novykov</h2>
+      </div>
+      <p class="about-text reveal">
+        Sensei Alexander Novykov hat sein Leben dem Weg des Kyokushin gewidmet — einem der anspruchsvollsten Vollkontakt-Stile der Welt. Mit über zwei Jahrzehnten Praxis und Unterricht bringt er sowohl technische Meisterschaft als auch die philosophische Tiefe des Budo in jede Trainingseinheit.
+      </p>
+      <p class="about-text reveal">
+        Seine Unterrichtsphilosophie ist einfach: das Dojo ist eine Schmiede. Jeder Schüler, der es betritt, verlässt es stärker — nicht nur körperlich, sondern auch im Charakter, in der Konzentration und in der Belastbarkeit.
+      </p>
+      <div class="about-stats reveal">
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Jahre Unterricht</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Ausgebildete Schüler</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Dojo · Ins</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-kanji"><span>極真</span></div>
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <div class="programs-header">
+      <div class="reveal">
+        <p class="section-label">Trainingsprogramme</p>
+        <h2 class="section-title">Finde deinen Weg</h2>
+      </div>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-kanji">子</div>
+        <div class="program-num">01</div>
+        <h3 class="program-name">Junge Kämpfer</h3>
+        <p class="program-desc">Eine sichere, strukturierte Einführung in Kyokushin für Kinder. Fördert Disziplin, Konzentration und Selbstvertrauen von klein auf.</p>
+        <span class="program-age tag tag-kids">Alter 6 – 12</span>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-kanji">道</div>
+        <div class="program-num">02</div>
+        <h3 class="program-name">Erwachsene Grundlagen</h3>
+        <p class="program-desc">Für Erwachsene, die ihre Kampfkunst-Reise beginnen. Lerne authentische Kyokushin-Technik und Konditionierung in deinem eigenen Tempo.</p>
+        <span class="program-age tag tag-adults">Ab 13 Jahren</span>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-kanji">極</div>
+        <div class="program-num">03</div>
+        <h3 class="program-name">Wettkampfklasse</h3>
+        <p class="program-desc">Hochintensives Training für Turnierteilnehmer. Vollkontakt-Sparring, fortgeschrittene Kata und Höchstleistungskonditionierung.</p>
+        <span class="program-age tag tag-advanced">Fortgeschrittene</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="schedule-header">
+      <div class="reveal">
+        <p class="section-label">Wochenstundenplan</p>
+        <h2 class="section-title">Trainingszeiten</h2>
+      </div>
+    </div>
+    <table class="schedule-table reveal">
+      <thead>
+        <tr>
+          <th>Tag</th>
+          <th>Uhrzeit</th>
+          <th>Kurs</th>
+          <th>Niveau</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day">Montag</td>
+          <td class="time">17:00 – 18:30</td>
+          <td>Junge Kämpfer</td>
+          <td><span class="tag tag-kids">Kinder</span></td>
+        </tr>
+        <tr>
+          <td class="day">Montag</td>
+          <td class="time">19:00 – 20:30</td>
+          <td>Erwachsene Grundlagen</td>
+          <td><span class="tag tag-adults">Erwachsene</span></td>
+        </tr>
+        <tr>
+          <td class="day">Mittwoch</td>
+          <td class="time">17:00 – 18:30</td>
+          <td>Junge Kämpfer</td>
+          <td><span class="tag tag-kids">Kinder</span></td>
+        </tr>
+        <tr>
+          <td class="day">Mittwoch</td>
+          <td class="time">19:00 – 21:00</td>
+          <td>Wettkampfklasse</td>
+          <td><span class="tag tag-advanced">Fortgeschrittene</span></td>
+        </tr>
+        <tr>
+          <td class="day">Freitag</td>
+          <td class="time">18:00 – 19:30</td>
+          <td>Erwachsene Grundlagen</td>
+          <td><span class="tag tag-adults">Erwachsene</span></td>
+        </tr>
+        <tr>
+          <td class="day">Samstag</td>
+          <td class="time">10:00 – 12:00</td>
+          <td>Offenes Training</td>
+          <td><span class="tag tag-advanced">Alle Niveaus</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="reveal">
+          <p class="section-label">Dem Dojo beitreten</p>
+          <h2 class="contact-tagline">Dein erster Schritt<br>beginnt <em>hier.</em></h2>
+        </div>
+        <div class="contact-info reveal">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <span>Ins, Schweiz</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <span>+41 XX XXX XX XX</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <span>info@katana-dojo.ch</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⏱</div>
+            <span>Erste Probestunde kostenlos</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <div class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vorname</label>
+              <input type="text" id="fname" placeholder="Max" />
+            </div>
+            <div class="form-group">
+              <label>Nachname</label>
+              <input type="text" id="lname" placeholder="Muster" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>E-Mail</label>
+            <input type="email" id="email" placeholder="max@beispiel.ch" />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" id="phone" placeholder="+41 XX XXX XX XX" />
+          </div>
+          <div class="form-group">
+            <label>Gewünschtes Programm</label>
+            <select id="program">
+              <option value="">Programm auswählen</option>
+              <option value="young">Junge Kämpfer (Kinder)</option>
+              <option value="adult">Erwachsene Grundlagen</option>
+              <option value="competition">Wettkampfklasse</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nachricht (optional)</label>
+            <textarea id="message" placeholder="Fragen oder Anmerkungen für den Sensei..."></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="button" class="btn-primary" onclick="handleSubmit()"
+              style="border:none;cursor:pointer;width:100%;justify-content:center;">
+              Anmeldung absenden →
+            </button>
+          </div>
+          <div id="form-status"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">刀 <span>Katana</span> Dojo</div>
+    <ul class="footer-links">
+      <li><a href="#about">Sensei</a></li>
+      <li><a href="#programs">Programme</a></li>
+      <li><a href="#schedule">Stundenplan</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <p class="footer-credit">
+      © 2025 Katana Dojo · Gestaltet & entwickelt von <a href="#">Danil Novykov</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
