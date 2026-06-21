@@ -207,3 +207,100 @@ function handleSubmit() {
   status.textContent = '✓ Anmeldung gesendet! Der Sensei wird sich bald bei dir melden.';
   status.className = 'success';
 }
+/* ──────────────────────────────────────────────────────
+   ВАЖНО: вставь сюда свой Formspree form ID.
+   1. Зарегистрируйся на https://formspree.io (бесплатно)
+   2. Создай новую форму (New Form), укажи свою почту
+   3. Скопируй ID из адреса вида https://formspree.io/f/XXXXXXX
+   4. Подставь его вместо "YOUR_FORM_ID" ниже
+   5. После первой реальной отправки с сайта Formspree пришлёт
+      тебе письмо с подтверждением — нужно будет его подтвердить,
+      иначе заявки не будут приходить.
+────────────────────────────────────────────────────── */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ─── HAMBURGER MENU ─────────────────────────────── */
+  const burger = document.getElementById("nav-burger");
+  const navLinks = document.getElementById("nav-links");
+
+  if (burger && navLinks) {
+    const closeMenu = () => {
+      burger.classList.remove("is-open");
+      navLinks.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-open");
+    };
+
+    const toggleMenu = () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      burger.classList.toggle("is-open", isOpen);
+      burger.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
+    };
+
+    burger.addEventListener("click", toggleMenu);
+
+    // Close menu when a link is tapped
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  /* ─── CONTACT FORM ───────────────────────────────── */
+  const form = document.getElementById("contact-form");
+  const statusEl = document.getElementById("form-status");
+  const submitBtn = document.getElementById("form-submit-btn");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (FORMSPREE_ENDPOINT.includes("YOUR_FORM_ID")) {
+        statusEl.textContent = "Formular ist noch nicht eingerichtet (Formspree-ID fehlt).";
+        statusEl.className = "error";
+        return;
+      }
+
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Wird gesendet...";
+      statusEl.className = "";
+      statusEl.textContent = "";
+
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+
+        if (response.ok) {
+          statusEl.textContent = "Danke! Deine Anmeldung wurde gesendet.";
+          statusEl.className = "success";
+          form.reset();
+        } else {
+          const data = await response.json().catch(() => null);
+          const msg =
+            data && data.errors
+              ? data.errors.map((err) => err.message).join(", ")
+              : "Es gab ein Problem beim Senden. Bitte versuche es erneut.";
+          statusEl.textContent = msg;
+          statusEl.className = "error";
+        }
+      } catch (err) {
+        statusEl.textContent = "Verbindungsfehler. Bitte versuche es später erneut.";
+        statusEl.className = "error";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+});

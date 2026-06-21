@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
+  <script src="js/nav-form.js" defer></script>
 </head>
 <body>
 
@@ -40,12 +41,15 @@
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo"><img src="bildes/logo.png" alt="Katana Dojo" /></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#about">Sensei</a></li>
       <li><a href="#programs">Programme</a></li>
       <li><a href="#schedule">Stundenplan</a></li>
       <li><a href="#contact">Anmelden</a></li>
     </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -245,46 +249,46 @@
         </div>
       </div>
       <div class="contact-right reveal">
-        <div class="contact-form" id="contact-form">
+        <form class="contact-form" id="contact-form">
           <div class="form-row">
             <div class="form-group">
-              <label>Vorname</label>
-              <input type="text" id="fname" placeholder="Max" />
+              <label for="fname">Vorname</label>
+              <input type="text" id="fname" name="Vorname" placeholder="Max" required />
             </div>
             <div class="form-group">
-              <label>Nachname</label>
-              <input type="text" id="lname" placeholder="Muster" />
+              <label for="lname">Nachname</label>
+              <input type="text" id="lname" name="Nachname" placeholder="Muster" required />
             </div>
           </div>
           <div class="form-group">
-            <label>E-Mail</label>
-            <input type="email" id="email" placeholder="max@beispiel.ch" />
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="E-Mail" placeholder="max@beispiel.ch" required />
           </div>
           <div class="form-group">
-            <label>Telefon</label>
-            <input type="tel" id="phone" placeholder="+41 XX XXX XX XX" />
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="Telefon" placeholder="+41 XX XXX XX XX" />
           </div>
           <div class="form-group">
-            <label>Gewünschtes Programm</label>
-            <select id="program">
+            <label for="program">Gewünschtes Programm</label>
+            <select id="program" name="Programm">
               <option value="">Programm auswählen</option>
-              <option value="young">Junge Kämpfer (Kinder)</option>
-              <option value="adult">Erwachsene Grundlagen</option>
-              <option value="competition">Wettkampfklasse</option>
+              <option value="Junge Kämpfer (Kinder)">Junge Kämpfer (Kinder)</option>
+              <option value="Erwachsene Grundlagen">Erwachsene Grundlagen</option>
+              <option value="Wettkampfklasse">Wettkampfklasse</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Nachricht (optional)</label>
-            <textarea id="message" placeholder="Fragen oder Anmerkungen für den Sensei..."></textarea>
+            <label for="message">Nachricht (optional)</label>
+            <textarea id="message" name="Nachricht" placeholder="Fragen oder Anmerkungen für den Sensei..."></textarea>
           </div>
           <div class="form-submit">
-            <button type="button" class="btn-primary" onclick="handleSubmit()"
+            <button type="submit" class="btn-primary" id="form-submit-btn"
               style="border:none;cursor:pointer;width:100%;justify-content:center;">
               Anmeldung absenden →
             </button>
           </div>
           <div id="form-status"></div>
-        </div>
+        </form>
       </div>
     </div>
   </section>
