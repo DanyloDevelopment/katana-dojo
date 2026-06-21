@@ -264,13 +264,13 @@ nav {
   font-family: var(--font-jp);
   font-size: clamp(52px, 9vw, 120px);
   font-weight: 900;
-  line-height: 1.05;
+  line-height: 0.90;
   letter-spacing: -0.02em;
   overflow: hidden;
   position: relative;
   z-index: 1;
 }
-.hero-title .line { overflow: hidden; padding-bottom: 0.12em; }
+.hero-title .line { overflow: hidden;}
 .hero-title .line span { display: block; transform: translateY(110%); }
 .hero-title .line-red span { color: var(--red); }
 .hero-sub {
