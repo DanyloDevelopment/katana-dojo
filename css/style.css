@@ -686,9 +686,8 @@ footer {
 @media (max-width: 900px) {
   nav {
     padding: 20px 24px;
-    .hero-eyebrow {
-  }
-.hero-eyebrow {
+    }
+  .hero-eyebrow {
  padding-top: 20px;
 }
   .nav-links {
