@@ -721,3 +721,8 @@ footer {
     backdrop-filter: blur(10px);
   }
 }
+.hero-number img {
+  width: 100px;   /* размер */
+  height: auto;
+  display: block;
+}
