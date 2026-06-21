@@ -166,7 +166,7 @@ gsap.utils.toArray('.stat-num').forEach(el => {
 (function () {
   const wrap = document.createElement('div');
   wrap.style.cssText = 'overflow:hidden;padding:20px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:var(--dark)';
-  const txt = '極真空手 · KYOKUSHIN · 鍛錬 · KATANA DOJO · 不屈 · SENSEI NOVYKOV · ';
+  const txt = '極真空手 · KYOKUSHIN KARATE · 鍛錬 · KATANA DOJO · 不屈 · SEMPAI NOVYKOV · ';
   const inner = document.createElement('div');
   inner.style.cssText = 'display:inline-block;white-space:nowrap;will-change:transform';
   inner.style.fontFamily = "'Noto Serif JP', serif";
@@ -204,7 +204,7 @@ function handleSubmit() {
     return;
   }
   gsap.to('.form-submit .btn-primary', { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 });
-  status.textContent = '✓ Anmeldung gesendet! Der Sensei wird sich bald bei dir melden.';
+  status.textContent = '✓ Anmeldung gesendet! Der Sempai wird sich bald bei dir melden.';
   status.className = 'success';
 }
 /* ──────────────────────────────────────────────────────
