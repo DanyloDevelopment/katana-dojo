@@ -746,7 +746,7 @@ footer {
   nav {
     padding: 24px 32px;
   }
-  .nav-logo img { height: 64px; }
+  .nav-logo img { height: 80px; }
   .nav-links { gap: 24px; }
   .nav-links a { font-size: 10px; }
 
@@ -787,9 +787,10 @@ footer {
     align-items: center;
     mix-blend-mode: normal;
     background: rgba(10,10,10,0.92);
+    font-size: 40px;
   }
 
-  .nav-logo img { height: 48px; }
+  .nav-logo img { height: 70px; }
 
   /* ---------- Hero ---------- */
   #hero {

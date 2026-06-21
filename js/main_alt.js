@@ -120,7 +120,7 @@ return;
 // ─ EmailJS (раскомментируй когда подключишь) ─
 // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { fname, lname, email, program })
 // .then(() => {
-// status.textContent = '✓ Anmeldung gesendet! Der Sensei wird sich bald bei dir melden.';
+// status.textContent = '✓ Anmeldung gesendet! Der Sempai wird sich bald bei dir melden.';
 // status.className = 'success';
 // })
 // .catch(() => {
@@ -129,7 +129,7 @@ return;
 // });
 
 // Demo (убери когда подключишь EmailJS)
-status.textContent = '✓ Anmeldung gesendet! Der Sensei wird sich bald bei dir melden.';
+status.textContent = '✓ Anmeldung gesendet! Der Sempai wird sich bald bei dir melden.';
 status.className = 'success';
 }
 
