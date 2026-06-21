@@ -107,7 +107,7 @@ nav {
 }
 .nav-logo {
   font-family: var(--font-jp);
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
   font-weight: 700;
   letter-spacing: 0.05em;
   color: var(--white);
