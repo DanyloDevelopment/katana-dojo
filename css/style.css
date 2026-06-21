@@ -690,6 +690,9 @@ footer {
   .hero-eyebrow {
  padding-top: 20px;
 }
+.hero-number img {
+  width: 70px;   /* размер */
+ }
   .nav-links {
     gap: 20px;
   }
